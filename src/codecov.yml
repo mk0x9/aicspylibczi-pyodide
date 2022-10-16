@@ -1,0 +1,12 @@
+ignore:
+  - "**/__init__.py"
+  - "aicspylibczi/tests"
+  - "aicspylibczi/c_tests"
+  - "aicspylibczi/docs"
+  - "aicspylibczi/bin"
+  - "pybind11"
+  - "_aicspylibczi/*"
+  - "libCZI"
+  - ".github"
+  - "cmake-build-debug"
+  - "_build"

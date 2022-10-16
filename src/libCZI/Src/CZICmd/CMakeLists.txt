@@ -1,19 +1,27 @@
 IF(UNIX)
- find_package(ZLIB QUIET)
- if (NOT ZLIB_FOUND)
-    message(FATAL_ERROR [=[
-    ZLIB library was not found, which is required for building. Consider installing
-    like 'sudo apt-get install zlib1g-dev'.
-    ]=])
- endif()
 
- find_package(PNG QUIET)
- if (NOT PNG_FOUND)
-    message(FATAL_ERROR [=[
-    PNG library was not found, which is required for building. Consider installing
-    like 'sudo apt-get install libpng-dev'.
-    ]=])
- endif()
+set(USE_FLAGS "-sUSE_ZLIB=1 -sUSE_LIBPNG=1")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${USE_FLAGS}")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${USE_FLAGS}")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${USE_FLAGS}")
+set(ZLIB_INCLUDE_DIR "")
+set(PNG_INCLUDE_DIR "")
+
+#  find_package(ZLIB QUIET)
+#  if (NOT ZLIB_FOUND)
+#     message(FATAL_ERROR [=[
+#     ZLIB library was not found, which is required for building. Consider installing
+#     like 'sudo apt-get install zlib1g-dev'.
+#     ]=])
+#  endif()
+
+#  find_package(PNG QUIET)
+#  if (NOT PNG_FOUND)
+#     message(FATAL_ERROR [=[
+#     PNG library was not found, which is required for building. Consider installing
+#     like 'sudo apt-get install libpng-dev'.
+#     ]=])
+#  endif()
 
 ENDIF(UNIX)
 
